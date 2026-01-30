@@ -122,3 +122,13 @@ STATIC_URL = '/static/'
 LOGIN_REDIRECT_URL='dashboard'
 LOGIN_URL = 'login'
 LOGOUT_URL = 'logout'
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_USE_SSL = False
+EMAIL_HOST_USER = 'kirubaanandhini@testpress.in'
+EMAIL_HOST_PASSWORD = 'zmdukitrjlxasszt'
+MEDIA_URL='/media/'
+MEDIA_ROOT=os.path.join(BASE_DIR,'media/')
