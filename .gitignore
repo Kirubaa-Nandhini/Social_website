@@ -52,3 +52,5 @@ Thumbs.db
 # Uncomment if you want to ignore migrations
 # */migrations/
 # !*/migrations/__init__.py
+redis-5.0.8.tar.gz
+redis-5.0.8/

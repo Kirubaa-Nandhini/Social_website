@@ -1,10 +1,11 @@
-from django.urls import path 
+from django.urls import path,include
 from . import views
 from django.contrib.auth import views as auth_views
-
+from django.conf import settings
+from django.conf.urls.static import static
 urlpatterns = [
    #path('login/',views.user_login,name='login'), 
-   path('login/',auth_views.LoginView.as_view(),
+   path('login/',views.CustomLoginView.as_view(),
         name='login'),
    path('logout/',auth_views.LogoutView.as_view(),
         name='logout'),
@@ -28,4 +29,13 @@ urlpatterns = [
         auth_views.PasswordResetCompleteView.as_view(),
         name='password_reset_complete'),
     path('register/', views.register, name='register'),
+    path('edit/',views.edit,name='edit'),
+    path('social-auth/',include('social_django.urls',namespace='social')),
+    path('users/',views.user_list,name="user_list"),
+    path('users/<username>',views.user_detail,name="user_detail"),
+    path('users/follow/', views.user_follow, name='user_follow'),
 ]
+
+if settings.DEBUG:
+   urlpatterns += static(settings.MEDIA_URL,
+   document_root=settings.MEDIA_ROOT)
